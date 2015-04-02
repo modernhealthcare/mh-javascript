@@ -2,7 +2,7 @@
 
 > The leader in healthcare business news, research & data
 
-MH's approach to writing/maintianing JS
+MH's approach to writing/maintianing JS.
 
 ## [Table of Contents](http://modernhealthcare.github.io)
 
