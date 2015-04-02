@@ -175,9 +175,11 @@ alert(truth);
 <code class="language-javascript">
 // gulpfile.js
 var gulp = require('gulp');
+...
 var jshint = require('gulp-jshint');
 var concat = require('gulp-watch');
 var uglify = require('gulp-uglify');
+
 ...
 
 // lint
@@ -202,6 +204,8 @@ gulp.task('scripts', ['lint'], function() {
   .pipe(size({ showFiles: true, title: 'scripts' }))
   .pipe(gulp.dest('./js'));
 });
+
+...
 </code>
 </pre>
 <p>Some scripts need to be placed in the <code class="language-markup">head</code> of the document. Rather then block rendering them, inline essential js in a <code class="language-markup">&lt;script>&lt;/script></code> tag.</p>

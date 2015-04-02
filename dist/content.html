@@ -118,9 +118,11 @@ alert(truth);
 <code class="language-javascript">
 // gulpfile.js
 var gulp = require('gulp');
+...
 var jshint = require('gulp-jshint');
 var concat = require('gulp-watch');
 var uglify = require('gulp-uglify');
+
 ...
 
 // lint
@@ -145,6 +147,8 @@ gulp.task('scripts', ['lint'], function() {
   .pipe(size({ showFiles: true, title: 'scripts' }))
   .pipe(gulp.dest('./js'));
 });
+
+...
 </code>
 </pre><p>Some scripts need to be placed in the <code class="language-markup">head</code> of the document. Rather then block rendering them, inline essential js in a <code class="language-markup">&lt;script>&lt;/script></code> tag.</p><p>More <a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/analyzing-crp?hl=en" target="_blank">here</a>.</p><h2 id="jquery">jQuery</h2><p>Prefix jQuery object variables with a <code class="language-javascript">$</code></p><h2 class="label -label-xl">Scripts:</h2><pre class="language-javascript">
 <code class="language-javascript">
