@@ -93,20 +93,91 @@ $('[data-js="form"]')
 <code class="language-javascript">
 // bad
 var bacon = true;
+var eat = 'delicious';
+var truth;
 if (bacon) {
-  var eat = 'delicious';
-  var truth = 'Bacon is ' + eat + '.';
+  truth = 'Bacon is ' + eat + '.';
+  console.log('Yep.');
 }
 alert(truth);
 
 // good
 var bacon = true;
-if (bacon) {
-  var eat = 'delicious';
+var eat = 'delicious';
+var truth;
 
-  var truth = 'Bacon is ' + eat + '.';
+if (bacon) {
+  truth = 'Bacon is ' + eat + '.';
+
+  console.log('Yep.');
 }
 
 alert(truth);
 </code>
-</pre><h2 id="optimization">Optimization</h2><p>Lint, concat and compress.</p><h2 id="jquery">jQuery</h2><h2 id="angularjs">AngularJS</h2><h2 id="resources">Resources</h2><ul class="dot-list"><li><a href="https://github.com/airbnb/javascript" target="_blank">Airbnb JavaScript Style Guide</a></li><li><a href="http://eloquentjavascript.net/" target="_blank">Eloquent JavaScript</a></li></ul>
+</pre><h2 id="optimization">Optimization</h2><p>Lint, concat and compress.</p><h2 class="label -label-xl">Scripts:</h2><pre class="language-javascript">
+<code class="language-javascript">
+// gulpfile.js
+var gulp = require('gulp');
+var jshint = require('gulp-jshint');
+var concat = require('gulp-watch');
+var uglify = require('gulp-uglify');
+...
+
+// lint
+gulp.task('lint', function() {
+  gulp.src('./src/js/scripts.js')
+  .pipe(jshint())
+  .pipe(jshint.reporter('default'));
+});
+
+// concat all scripts and compress
+gulp.task('scripts', ['lint'], function() {
+  gulp.src([
+    './src/js/polyfills/*.js',
+    './src/js/cci/*.js',
+    './src/js/plugins/*.js',
+    './src/js/app/*.js'
+  ])
+  .pipe(plumber())
+  .pipe(concat('scripts.js'))
+  .pipe(uglify())
+  .pipe(rename({ suffix: '.min' }))
+  .pipe(size({ showFiles: true, title: 'scripts' }))
+  .pipe(gulp.dest('./js'));
+});
+</code>
+</pre><p>Some scripts need to be placed in the <code class="language-markup">head</code> of the document. Rather then block rendering them, inline essential js in a <code class="language-markup">&lt;script>&lt;/script></code> tag.</p><p>More <a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/analyzing-crp?hl=en" target="_blank">here</a>.</p><h2 id="jquery">jQuery</h2><p>Prefix jQuery object variables with a <code class="language-javascript">$</code></p><h2 class="label -label-xl">Scripts:</h2><pre class="language-javascript">
+<code class="language-javascript">
+// bad
+var sidebar = $('[data-js="sidebar"]');
+
+// good
+var $sidebar = $('[data-js="sidebar"]');
+</code>
+</pre><p>Cache jQuery lookups.</p><h2 class="label -label-xl">Scripts:</h2><pre class="language-javascript">
+<code class="language-javascript">
+// bad
+function setSidebar() {
+  $('[data-js="sidebar"]').hide();
+
+  // ...Do stuff here...
+
+  $('[data-js="sidebar"]').css({
+    'background-color': 'white'
+  });
+}
+
+// good
+function setSidebar() {
+  var $sidebar = $('[data-js="sidebar"]')
+
+  $sidebar.hide();
+
+  // ...Do stuff here...
+
+  $sidebar.css({
+    'background-color': 'white'
+  });
+}
+</code>
+</pre><h2 id="angularjs">AngularJS</h2><em>...Coming soon...</em><h2 id="resources">Resources</h2><ul class="dot-list"><li><a href="https://github.com/airbnb/javascript" target="_blank">Airbnb JavaScript Style Guide</a></li><li><a href="http://eloquentjavascript.net/" target="_blank">Eloquent JavaScript</a></li><li><a href="https://developers.google.com/speed/docs/insights/BlockingJS" target="_blank">Remove Render-Blocking JavaScript</a></li><li><a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/analyzing-crp?hl=en" target="_blank">Analyzing Critical Rendering Path Performance</a></li><li><a href="http://www.sitepoint.com/optimizing-critical-rendering-path/" target="_blank">Optimizing the Critical Rendering Path</a></li></ul>
