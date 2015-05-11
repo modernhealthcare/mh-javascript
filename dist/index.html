@@ -1,7 +1,7 @@
 <!doctype html><!--[if lt IE 7]><html lang="en-us" class="ie6"><![endif]--><!--[if IE 7]><html lang="en-us" class="ie7"><![endif]--><!--[if IE 8]><html lang="en-us" class="ie8"><![endif]--><!--[if IE 9]><html lang="en-us" class="ie9"><![endif]--><!--[if (gt IE 9)|!(IE)]><!--><html lang="en-us"><!--<![endif]--><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"><title>Modern Healthcare Javascript Styleguide</title><meta name="description" content="The leader in healthcare business news, research &amp; data
 "><meta name="author" content="@pxdunn"><link rel="shortcut icon" href="img/touch-icon-57x57.png"><link rel="stylesheet" href="css/styles.min.css"><!--[if lte IE 8]><link rel="stylesheet" href="css/ie-styles.min.css">
   <link rel="stylesheet" href="css/grids-responsive-old-ie.min.css"><![endif]--><!--[if gt IE 8]><!--><link rel="stylesheet" href="css/grids-responsive.min.css"><!--<![endif]--><!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script><![endif]--></head><body class="wrapper"><header class="header"><div class="pure-g"><div class="pure-u-1"><div class="u-pad masthead"><div class="header-logo"><h1 class="logo"><a href="#"><img src="http://www.modernhealthcare.com/images/mh-logo-dropshadow.png" alt="Modern Healthcare"></a></h1><span class="tagline">The leader in healthcare business news, research & data</span></div></div><nav class="nav-sidebar"><ul class="nav-list"><li><a href="#variables"><span>Variables</span></a></li><li><a href="#selectors"><span>Selectors</span></a></li><li><a href="#functions"><span>Functions</span></a></li><li><a href="#whitespace"><span>Whitespace</span></a></li><li><a href="#optimization"><span>Optimization</span></a></li><li><a href="#jquery"><span>jQuery</span></a></li><li><a href="#angularjs"><span>AngularJS</span></a></li><li><a href="#resources"><span>Resources</span></a></li></ul></nav></div></div></header><div class="main"><div class="pure-g"><div class="pure-u-1"><div class="u-pad"><a href="/">&laquo; Back to table of contents</a><h1 class="title-xxl">Javascript Styleguide</h1><p>MH's approach to writing/maintianing JS.</p><h2 id="variables">Variables</h2><p>Declare <strong>ALL</strong> variables in longform.</p><h2 class="label -label-xl">Scripts:</h2><pre class="language-javascript">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script><![endif]--></head><body class="wrapper"><header class="header"><div class="pure-g"><div class="pure-u-1"><div class="masthead"><ul class="main-nav"><li class="logo"><a href="http://modernhealthcare.github.io"><img class="pure-img" src="https://raw.githubusercontent.com/modernhealthcare/mh-logo/master/mh-logo-cool-grey.png" alt="Modern Healthcare"></a></li><li><a href="http://modernhealthcare.github.io/mh-docs/dist">Docs</a></li><li><a href="http://modernhealthcare.github.io/mh-patterns/dist">Patterns</a></li><li class="current"><a href="http://modernhealthcare.github.io/mh-javascript/dist">Javascript</a></li><li><a href="http://modernhealthcare.github.io/mh-performance/dist">Performance</a></li></ul><a class="nav-toggle" data-js="nav-toggle" href="#"><span></span></a></div></div></div></header><nav class="u-pad nav-sidebar" data-js="nav-sidebar"><div class="pure-g"><div class="pure-u-1"><ul class="sub-nav" data-js="sub-nav"><li><a href="#about"><span>About</span></a></li><li><a href="#variables"><span>Variables</span></a></li><li><a href="#selectors"><span>Selectors</span></a></li><li><a href="#functions"><span>Functions</span></a></li><li><a href="#whitespace"><span>Whitespace</span></a></li><li><a href="#optimization"><span>Optimization</span></a></li><li><a href="#jquery"><span>jQuery</span></a></li><li><a href="#angularjs"><span>AngularJS</span></a></li><li><a href="#resources"><span>Resources</span></a></li></ul></div></div></nav><main class="main" data-js="main"><div class="pure-g"><div class="pure-u-1"><div class="u-pad"><section data-js="#about"><h1 id="about">Javascript Styleguide</h1><p>MH's approach to writing/maintianing JS.</p></section><section data-js="#variables"><h2 id="variables">Variables</h2><p>Declare <strong>ALL</strong> variables in longform.</p><h3 class="label -label-xl">Scripts:</h3><pre class="language-javascript">
 <code class="language-javascript">
 // bad
 var foo = 'Too much bacon.',
@@ -11,12 +11,12 @@ var foo = 'Too much bacon.',
 var foo = 'Bacon is good.';
 var bar = true;
 </code>
-</pre><h2 id="selectors">Selectors</h2><p>When selecting elements, use the <code class="language-markup">data-js</code> attribute, rather than slecting by <code class="language-markup">class</code> and/or <code class="language-markup">id</code>.</p><h2 class="label -label-xl">Markup:</h2><pre class="language-markup">
+</pre></section><section data-js="#selectors"><h2 id="selectors">Selectors</h2><p>When selecting elements, use the <code class="language-markup">data-js</code> attribute, rather than slecting by <code class="language-markup">class</code> and/or <code class="language-markup">id</code>.</p><h3 class="label -label-xl">Markup:</h3><pre class="language-markup">
 <code class="language-markup">
 &lt;!-- html -->
 &lt;a class="toggle" data-js="toggle">hamburger&lt;/a>
 </code>
-</pre><h2 class="label -label-xl">Scripts:</h2><pre class="language-javascript">
+</pre><h3 class="label -label-xl">Scripts:</h3><pre class="language-javascript">
 <code class="language-javascript">
 // vanilla js
 var element = document.querySelector('[data-js="toggle"]');
@@ -24,7 +24,7 @@ var element = document.querySelector('[data-js="toggle"]');
 // jquery
 var element = $('[data-js="toggle"]');
 </code>
-</pre><p>Why? To seperate concerns. More <a href="http://shoptalkshow.com/episodes/134-marc-grabanski/#t=16:07" target="_blank">here</a>.</p><h2 id="functions">Functions</h2><p>JS should be resuable, so wrap eveything in a function. This also solves any bleeding through scopes.</p><h2 class="label -label-xl">Scripts:</h2><pre class="language-javascript">
+</pre><p>Why? To seperate concerns. More <a href="http://shoptalkshow.com/episodes/134-marc-grabanski/#t=16:07" target="_blank">here</a>.</p></section><section data-js="#functions"><h2 id="functions">Functions</h2><p>JS should be resuable, so wrap eveything in a function. This also solves any bleeding through scopes.</p><h3 class="label -label-xl">Scripts:</h3><pre class="language-javascript">
 <code class="language-javascript">
 // vanilla js function
 function myFunctionUno(el) {
@@ -49,7 +49,7 @@ window.onload = function() {
   init();
 }
 </code>
-</pre><h2 id="whitespace">Whitespace</h2><p>Soft tabs set to 2 spaces.</p><h2 class="label -label-xl">Scripts:</h2><pre class="language-javascript">
+</pre></section><section data-js="#whitespace"><h2 id="whitespace">Whitespace</h2><p>Soft tabs set to 2 spaces.</p><h3 class="label -label-xl">Scripts:</h3><pre class="language-javascript">
 <code class="language-javascript">
 // bad
 function() {
@@ -61,7 +61,7 @@ function() {
 ..return true;
 }
 </code>
-</pre><p>One space before leading brace.</p><h2 class="label -label-xl">Scripts:</h2><pre class="language-javascript">
+</pre><p>One space before leading brace.</p><h3 class="label -label-xl">Scripts:</h3><pre class="language-javascript">
 <code class="language-javascript">
 // bad
 function(){
@@ -73,7 +73,7 @@ function() {
   console.log('Yep.');
 }
 </code>
-</pre><p>Operators should use sapces.</p><h2 class="label -label-xl">Scripts:</h2><pre class="language-javascript">
+</pre><p>Operators should use sapces.</p><h3 class="label -label-xl">Scripts:</h3><pre class="language-javascript">
 <code class="language-javascript">
 // bad
 var x=y+5;
@@ -81,7 +81,7 @@ var x=y+5;
 // good
 var x = y + 5;
 </code>
-</pre><p>Indent long method chains.</p><h2 class="label -label-xl">Scripts:</h2><pre class="language-javascript">
+</pre><p>Indent long method chains.</p><h3 class="label -label-xl">Scripts:</h3><pre class="language-javascript">
 <code class="language-javascript">
 // bad
 $('[data-js="form"]').find(':selected').text('Selected').css('color', 'green');
@@ -92,7 +92,7 @@ $('[data-js="form"]')
     .text('Selected')
     .css('color', 'green');
 </code>
-</pre><p>Leave a blank line after blocks.</p><h2 class="label -label-xl">Scripts:</h2><pre class="language-javascript">
+</pre><p>Leave a blank line after blocks.</p><h3 class="label -label-xl">Scripts:</h3><pre class="language-javascript">
 <code class="language-javascript">
 // bad
 var bacon = true;
@@ -117,7 +117,7 @@ if (bacon) {
 
 alert(truth);
 </code>
-</pre><h2 id="optimization">Optimization</h2><p>Lint, concat and compress.</p><h2 class="label -label-xl">Scripts:</h2><pre class="language-javascript">
+</pre></section><section data-js="#optimization"><h2 id="optimization">Optimization</h2><p>Lint, concat and compress.</p><h3 class="label -label-xl">Scripts:</h3><pre class="language-javascript">
 <code class="language-javascript">
 // gulpfile.js
 var gulp = require('gulp');
@@ -153,7 +153,7 @@ gulp.task('scripts', ['lint'], function() {
 
 ...
 </code>
-</pre><p>Some scripts need to be placed in the <code class="language-markup">head</code> of the document. Rather then block rendering them, inline essential js in a <code class="language-markup">&lt;script>&lt;/script></code> tag.</p><p>More <a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/analyzing-crp?hl=en" target="_blank">here</a>.</p><h2 id="jquery">jQuery</h2><p>Prefix jQuery object variables with a <code class="language-javascript">$</code></p><h2 class="label -label-xl">Scripts:</h2><pre class="language-javascript">
+</pre><p>Some scripts need to be placed in the <code class="language-markup">head</code> of the document. Rather then block rendering them, inline essential js in a <code class="language-markup">&lt;script>&lt;/script></code> tag.</p><p>More <a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/analyzing-crp?hl=en" target="_blank">here</a>.</p></section><section data-js="#jquery"><h2 id="jquery">jQuery</h2><p>Prefix jQuery object variables with a <code class="language-javascript">$</code></p><h3 class="label -label-xl">Scripts:</h3><pre class="language-javascript">
 <code class="language-javascript">
 // bad
 var sidebar = $('[data-js="sidebar"]');
@@ -161,7 +161,7 @@ var sidebar = $('[data-js="sidebar"]');
 // good
 var $sidebar = $('[data-js="sidebar"]');
 </code>
-</pre><p>Cache jQuery lookups.</p><h2 class="label -label-xl">Scripts:</h2><pre class="language-javascript">
+</pre><p>Cache jQuery lookups.</p><h3 class="label -label-xl">Scripts:</h3><pre class="language-javascript">
 <code class="language-javascript">
 // bad
 function setSidebar() {
@@ -187,4 +187,4 @@ function setSidebar() {
   });
 }
 </code>
-</pre><h2 id="angularjs">AngularJS</h2><em>...</em><h2 id="resources">Resources</h2><ul class="dot-list"><li><a href="https://github.com/airbnb/javascript" target="_blank">Airbnb JavaScript Style Guide</a></li><li><a href="http://eloquentjavascript.net/" target="_blank">Eloquent JavaScript</a></li><li><a href="https://developers.google.com/speed/docs/insights/BlockingJS" target="_blank">Remove Render-Blocking JavaScript</a></li><li><a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/analyzing-crp?hl=en" target="_blank">Analyzing Critical Rendering Path Performance</a></li><li><a href="http://www.sitepoint.com/optimizing-critical-rendering-path/" target="_blank">Optimizing the Critical Rendering Path</a></li></ul><br><br><a href="/">&laquo; Back to table of contents</a><br><br><span data-js="copyright"></span><br><br></div></div></div></div><a class="to-top" href="#"><span class="icon-arrow-up6"></span></a><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script><script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-browser/0.0.6/jquery.browser.min.js"></script><script src="http://www.modernhealthcare.com/js/plugins/modernizr.custom.js"></script><script src="js/scripts.min.js"></script></body></html>
+</pre></section><section data-js="#angularjs"><h2 id="angularjs">AngularJS</h2><em>...</em></section><section data-js="#resources"><h2 id="resources">Resources</h2><ul class="dot-list"><li><a href="https://github.com/airbnb/javascript" target="_blank">Airbnb JavaScript Style Guide</a></li><li><a href="http://eloquentjavascript.net/" target="_blank">Eloquent JavaScript</a></li><li><a href="https://developers.google.com/speed/docs/insights/BlockingJS" target="_blank">Remove Render-Blocking JavaScript</a></li><li><a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/analyzing-crp?hl=en" target="_blank">Analyzing Critical Rendering Path Performance</a></li><li><a href="http://www.sitepoint.com/optimizing-critical-rendering-path/" target="_blank">Optimizing the Critical Rendering Path</a></li></ul></section><br><br><span data-js="copyright"></span><br><br></div></div></div></main><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script><script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-browser/0.0.6/jquery.browser.min.js"></script><script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-browser/0.0.6/jquery.browser.min.js"></script><script src="js/scripts.min.js"></script></body></html>

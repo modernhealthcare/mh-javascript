@@ -1,11 +1,14 @@
-<h1 class="title-xxl">Javascript Styleguide</h1>
+<section data-js="#about">
+<h1 id="about">Javascript Styleguide</h1>
 <p>MH's approach to writing/maintianing JS.</p>
+</section>
 
 
 
+<section data-js="#variables">
 <h2 id="variables">Variables</h2>
 <p>Declare <strong>ALL</strong> variables in longform.</p>
-<h2 class="label -label-xl">Scripts:</h2>
+<h3 class="label -label-xl">Scripts:</h3>
 <pre class="language-javascript">
 <code class="language-javascript">
 // bad
@@ -17,20 +20,22 @@ var foo = 'Bacon is good.';
 var bar = true;
 </code>
 </pre>
+</section>
 
 
 
+<section data-js="#selectors">
 <h2 id="selectors">Selectors</h2>
 <p>When selecting elements, use the <code class="language-markup">data-js</code> attribute, rather than slecting by <code class="language-markup">class</code> and/or <code class="language-markup">id</code>.</p>
 
-<h2 class="label -label-xl">Markup:</h2>
+<h3 class="label -label-xl">Markup:</h3>
 <pre class="language-markup">
 <code class="language-markup">
 &lt;!-- html -->
 &lt;a class="toggle" data-js="toggle">hamburger&lt;/a>
 </code>
 </pre>
-<h2 class="label -label-xl">Scripts:</h2>
+<h3 class="label -label-xl">Scripts:</h3>
 <pre class="language-javascript">
 <code class="language-javascript">
 // vanilla js
@@ -42,12 +47,14 @@ var element = $('[data-js="toggle"]');
 </pre>
 
 <p>Why? To seperate concerns. More <a href="http://shoptalkshow.com/episodes/134-marc-grabanski/#t=16:07" target="_blank">here</a>.</p>
+</section>
 
 
 
+<section data-js="#functions">
 <h2 id="functions">Functions</h2>
 <p>JS should be resuable, so wrap eveything in a function.  This also solves any bleeding through scopes.</p>
-<h2 class="label -label-xl">Scripts:</h2>
+<h3 class="label -label-xl">Scripts:</h3>
 <pre class="language-javascript">
 <code class="language-javascript">
 // vanilla js function
@@ -74,12 +81,14 @@ window.onload = function() {
 }
 </code>
 </pre>
+</section>
 
 
 
+<section data-js="#whitespace">
 <h2 id="whitespace">Whitespace</h2>
 <p>Soft tabs set to 2 spaces.</p>
-<h2 class="label -label-xl">Scripts:</h2>
+<h3 class="label -label-xl">Scripts:</h3>
 <pre class="language-javascript">
 <code class="language-javascript">
 // bad
@@ -95,7 +104,7 @@ function() {
 </pre>
 
 <p>One space before leading brace.</p>
-<h2 class="label -label-xl">Scripts:</h2>
+<h3 class="label -label-xl">Scripts:</h3>
 <pre class="language-javascript">
 <code class="language-javascript">
 // bad
@@ -111,7 +120,7 @@ function() {
 </pre>
 
 <p>Operators should use sapces.</p>
-<h2 class="label -label-xl">Scripts:</h2>
+<h3 class="label -label-xl">Scripts:</h3>
 <pre class="language-javascript">
 <code class="language-javascript">
 // bad
@@ -123,7 +132,7 @@ var x = y + 5;
 </pre>
 
 <p>Indent long method chains.</p>
-<h2 class="label -label-xl">Scripts:</h2>
+<h3 class="label -label-xl">Scripts:</h3>
 <pre class="language-javascript">
 <code class="language-javascript">
 // bad
@@ -138,7 +147,7 @@ $('[data-js="form"]')
 </pre>
 
 <p>Leave a blank line after blocks.</p>
-<h2 class="label -label-xl">Scripts:</h2>
+<h3 class="label -label-xl">Scripts:</h3>
 <pre class="language-javascript">
 <code class="language-javascript">
 // bad
@@ -165,12 +174,14 @@ if (bacon) {
 alert(truth);
 </code>
 </pre>
+</section>
 
 
 
+<section data-js="#optimization">
 <h2 id="optimization">Optimization</h2>
 <p>Lint, concat and compress.</p>
-<h2 class="label -label-xl">Scripts:</h2>
+<h3 class="label -label-xl">Scripts:</h3>
 <pre class="language-javascript">
 <code class="language-javascript">
 // gulpfile.js
@@ -210,12 +221,14 @@ gulp.task('scripts', ['lint'], function() {
 </pre>
 <p>Some scripts need to be placed in the <code class="language-markup">head</code> of the document. Rather then block rendering them, inline essential js in a <code class="language-markup">&lt;script>&lt;/script></code> tag.</p>
 <p>More <a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/analyzing-crp?hl=en" target="_blank">here</a>.</p>
+</section>
 
 
 
+<section data-js="#jquery">
 <h2 id="jquery">jQuery</h2>
 <p>Prefix jQuery object variables with a <code class="language-javascript">$</code></p>
-<h2 class="label -label-xl">Scripts:</h2>
+<h3 class="label -label-xl">Scripts:</h3>
 <pre class="language-javascript">
 <code class="language-javascript">
 // bad
@@ -227,7 +240,7 @@ var $sidebar = $('[data-js="sidebar"]');
 </pre>
 
 <p>Cache jQuery lookups.</p>
-<h2 class="label -label-xl">Scripts:</h2>
+<h3 class="label -label-xl">Scripts:</h3>
 <pre class="language-javascript">
 <code class="language-javascript">
 // bad
@@ -255,13 +268,18 @@ function setSidebar() {
 }
 </code>
 </pre>
+</section>
 
 
+
+<section data-js="#angularjs">
 <h2 id="angularjs">AngularJS</h2>
 <em>...</em>
+</section>
 
 
 
+<section data-js="#resources">
 <h2 id="resources">Resources</h2>
 <ul class="dot-list">
   <li><a href="https://github.com/airbnb/javascript" target="_blank">Airbnb JavaScript Style Guide</a>
@@ -270,3 +288,4 @@ function setSidebar() {
   <li><a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/analyzing-crp?hl=en" target="_blank">Analyzing Critical Rendering Path Performance</a>
   <li><a href="http://www.sitepoint.com/optimizing-critical-rendering-path/" target="_blank">Optimizing the Critical Rendering Path</a>
 </ul>
+</section>
