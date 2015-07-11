@@ -11,12 +11,12 @@
 <h3 class="label -label-xl">Scripts:</h3>
 <pre class="language-javascript">
 <code class="language-javascript">
-// bad
+// good
 var foo = 'Too much bacon.',
     bar = false;
 
-// good
-var foo = 'Bacon is good.';
+// better
+var foo = 'Bacon is better.';
 var bar = true;
 </code>
 </pre>
@@ -91,12 +91,12 @@ window.onload = function() {
 <h3 class="label -label-xl">Scripts:</h3>
 <pre class="language-javascript">
 <code class="language-javascript">
-// bad
+// good
 function() {
 ....return false;
 }
 
-// good
+// better
 function() {
 ..return true;
 }
@@ -107,12 +107,12 @@ function() {
 <h3 class="label -label-xl">Scripts:</h3>
 <pre class="language-javascript">
 <code class="language-javascript">
-// bad
+// good
 function(){
   console.log('Nope.');
 }
 
-// good
+// better
 function() {
   console.log('Yep.');
 }
@@ -123,10 +123,10 @@ function() {
 <h3 class="label -label-xl">Scripts:</h3>
 <pre class="language-javascript">
 <code class="language-javascript">
-// bad
+// good
 var x=y+5;
 
-// good
+// better
 var x = y + 5;
 </code>
 </pre>
@@ -135,10 +135,10 @@ var x = y + 5;
 <h3 class="label -label-xl">Scripts:</h3>
 <pre class="language-javascript">
 <code class="language-javascript">
-// bad
+// good
 $('[data-js="form"]').find(':selected').text('Selected').css('color', 'green');
 
-// good
+// better
 $('[data-js="form"]')
   .find(':selected')
     .text('Selected')
@@ -150,7 +150,7 @@ $('[data-js="form"]')
 <h3 class="label -label-xl">Scripts:</h3>
 <pre class="language-javascript">
 <code class="language-javascript">
-// bad
+// good
 var bacon = true;
 var eat = 'delicious';
 var truth;
@@ -160,7 +160,7 @@ if (bacon) {
 }
 alert(truth);
 
-// good
+// better
 var bacon = true;
 var eat = 'delicious';
 var truth;
@@ -231,10 +231,10 @@ gulp.task('scripts', ['lint'], function() {
 <h3 class="label -label-xl">Scripts:</h3>
 <pre class="language-javascript">
 <code class="language-javascript">
-// bad
+// good
 var sidebar = $('[data-js="sidebar"]');
 
-// good
+// better
 var $sidebar = $('[data-js="sidebar"]');
 </code>
 </pre>
@@ -243,7 +243,7 @@ var $sidebar = $('[data-js="sidebar"]');
 <h3 class="label -label-xl">Scripts:</h3>
 <pre class="language-javascript">
 <code class="language-javascript">
-// bad
+// good
 function setSidebar() {
   $('[data-js="sidebar"]').hide();
 
@@ -254,7 +254,7 @@ function setSidebar() {
   });
 }
 
-// good
+// better
 function setSidebar() {
   var $sidebar = $('[data-js="sidebar"]')
 
